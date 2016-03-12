@@ -1,3 +1,5 @@
 require 'nmatrix'
 require 'daru'
-require 'slearn/Kmeans'
+require 'slearn/kmeans'
+require 'slearn/daru_methods.rb'
+require 'slearn/nmatrix_methods.rb'

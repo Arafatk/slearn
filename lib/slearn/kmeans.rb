@@ -1,28 +1,11 @@
-class NMatrix
-  def kmeans(n_clusters = 2, iterations = 4)
-    centroid = self.create_centroids(n_clusters)
-    closest_centroid = self.closest_centroid_array(n_clusters, centroid)
-    new_centroid = self.reposition(n_clusters, closest_centroid, centroid)
-
-    for i in 0..iterations - 2
-      closest_centroid = self.closest_centroid_array(n_clusters, new_centroid)
-      new_centroid = self.reposition(n_clusters, closest_centroid, new_centroid)
-    end
-
-    new_centroid
-  end
-
+module Kmeans
   # find centroid ranges as a bounding box for all nodes
   def create_ranges
     dimensions = self.shape[1]
-    ranges = NMatrix.new(dimensions) {[nil, nil]}
-    self.each_row do |row|
-      row.each_with_indices do |position, v, index|
-        # Bottom range
-        ranges[index,0] = position if ranges[index,0].nil? || position < ranges[index,0]
-        # Top range
-        ranges[index,1] = position if ranges[index,1].nil? || position > ranges[index,1]
-      end
+    ranges = NMatrix.new([dimensions,2])
+    (dimensions).times do |i|
+      ranges[i, 0] = self.col(i).min[0,0]
+      ranges[i, 1] = self.col(i).max[0,0]
     end
     ranges
   end
@@ -31,7 +14,7 @@ class NMatrix
   # a bounding box that encloses all the nodes
   def create_centroids(n_clusters)
     ranges = create_ranges
-    centroid = NMatrix.new([n_clusters, self.shape[1]])
+    centroid = NMatrix.new([n_clusters, self.shape[1]],dtype: self.dtype)
     0.upto(n_clusters - 1) do |i|
       0.upto(self.shape[1]-1) do |j|
         centroid[i,j] = rand_between(ranges[j,0], ranges[j,1])
@@ -41,7 +24,7 @@ class NMatrix
   end
 
   #Creates an array containing the closest centroid to a node
-  def closest_centroid_array(n_clusters, centroids)
+  def closest_centroid_array(centroids)
     closest_distance = Array.new(self.shape[0])
     closest_centroid = Array.new(self.shape[0])
     index = 0 
@@ -86,11 +69,9 @@ class NMatrix
 
   #TODO - Add other distance methods
   def euclidean_distance(a, b)
-    distance=0
-    0.upto(a.size - 1) do |i|
-      distance = distance + (a[i]-b[i]) * (a[i] - b[i])
-    end
-    distance = Math.sqrt(distance)
+    a = a.cast(:dense, :float64) if a.integer_dtype?
+    b = b.cast(:dense, :float64) if b.integer_dtype?
+    (a - b).norm2
   end
 
   # Simpler way to handle a random number between to values
@@ -104,5 +85,20 @@ class NMatrix
   def rand_in_floats(a, b)
     range = (a - b).abs
     (rand * range) + [a,b].min
+  end
+end
+
+class NMatrix
+  include Kmeans
+  def kmeans(n_clusters = 2, iterations = 4)
+    centroid = self.create_centroids(n_clusters)
+    closest_centroid = self.closest_centroid_array(centroid)
+    new_centroid = self.reposition(n_clusters, closest_centroid, centroid)
+
+    (iterations - 1).times do
+      closest_centroid = self.closest_centroid_array(new_centroid)
+      new_centroid = self.reposition(n_clusters, closest_centroid, new_centroid)
+    end
+    new_centroid
   end
 end
