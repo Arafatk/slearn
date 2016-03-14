@@ -2,6 +2,8 @@
 slearn is a supervised machine learning gem on top of NMatrix and daru.
 It uses NMatrix for computation, daru for data handling, and SciRuby visualization gems for visualization of results.
 
+[![Build Status](https://travis-ci.org/Arafatk/slearn.svg?branch=master)](https://travis-ci.org/Arafatk/slearn)
+
 ## Examples
 [K-Means clustering](http://nbviewer.jupyter.org/github/Arafatk/slearn/blob/master/notebook/K-means.ipynb)
 
