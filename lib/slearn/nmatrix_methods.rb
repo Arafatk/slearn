@@ -1,6 +1,6 @@
 class NMatrix
   # Converts Daru::DataFrame to NMatrix 
-  # TODO: make this better if possible
+  # NOTE: Make this faster
   def to_dataframe(order = 0, dtype: :float64, stype: :dense)
     raise(ShapeError, "The NMatrix must be 2 dimensional") unless self.dim == 2
     n, m = self.rows, self.cols

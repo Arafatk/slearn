@@ -1,7 +1,7 @@
 module Daru
   class DataFrame
     # Converts Daru::DataFrame to NMatrix 
-    # TODO: make this better if possible
+    # NOTE: Make this faster
     def to_nmatrix(dtype: :float64, stype: :dense)
       n, m = self.nrows, self.ncols
       data_array = Array.new 
@@ -11,7 +11,7 @@ module Daru
   end
 
   # Converts Daru::Vector to NMatrix 
-  # TODO: make this better if possible
+  # NOTE: Make this faster
   class Vector
     def to_nmatrix(dtype: :float64, stype: :dense)
       n = self.size
