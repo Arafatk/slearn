@@ -31,7 +31,7 @@ module Kmeans
     row_index = 0
     self.each_row do |row|
       centroids.each_row do |centroid|
-        distance = euclidean_distance(row,centroid)
+        distance = row.distance(centroid)
         closest_distance[row_index] = distance if closest_distance[row_index].nil?
         closest_centroid[row_index] = index if closest_centroid[row_index].nil?
         if distance < closest_distance[row_index]
@@ -65,13 +65,6 @@ module Kmeans
       end
     end
     centroid
-  end
-
-  #TODO - Add other distance methods
-  def euclidean_distance(a, b)
-    a = a.cast(:dense, :float64) if a.integer_dtype?
-    b = b.cast(:dense, :float64) if b.integer_dtype?
-    (a - b).norm2
   end
 
   # Simpler way to handle a random number between to values

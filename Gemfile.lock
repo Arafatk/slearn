@@ -1,0 +1,77 @@
+PATH
+  remote: .
+  specs:
+    slearn (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.2.0)
+    backports (3.6.7)
+    clbustos-rtf (0.4.2)
+    daru (0.1.2)
+      reportbuilder (~> 1.4)
+      spreadsheet (~> 1.1.1)
+    diff-lcs (1.2.5)
+    nmatrix (0.2.1)
+      packable (~> 1.3, >= 1.3.5)
+    nyaplot (0.1.6)
+    packable (1.3.6)
+      backports
+    parser (2.3.0.1)
+      ast (~> 2.2)
+    powerpack (0.1.1)
+    prawn (0.8.4)
+      prawn-core (>= 0.8.4, < 0.9)
+      prawn-layout (>= 0.8.4, < 0.9)
+      prawn-security (>= 0.8.4, < 0.9)
+    prawn-core (0.8.4)
+    prawn-layout (0.8.4)
+    prawn-security (0.8.4)
+    prawn-svg (0.9.1.11)
+      prawn (>= 0.8.4)
+    rainbow (2.0.0)
+    rake (10.5.0)
+    reportbuilder (1.4.2)
+      clbustos-rtf (~> 0.4.0)
+      prawn (~> 0.8.4)
+      prawn-svg (~> 0.9.1)
+      text-table (~> 1.2)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.2)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    rubocop (0.36.0)
+      parser (>= 2.3.0.0, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+    ruby-ole (1.2.12)
+    ruby-progressbar (1.7.5)
+    spreadsheet (1.1.1)
+      ruby-ole (>= 1.0)
+    text-table (1.2.4)
+    yard (0.8.7.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (= 1.8.4)
+  daru (~> 0.1.2)
+  nmatrix (~> 0.2.1)
+  nyaplot (~> 0.1.5)
+  rake (~> 10.0)
+  rspec (~> 3.0)
+  rubocop
+  slearn!
+  yard
