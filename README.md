@@ -8,8 +8,9 @@ It uses NMatrix for computation, daru for data handling, and SciRuby visualizati
 [K-Means clustering](http://nbviewer.jupyter.org/github/Arafatk/slearn/blob/master/notebook/K-means.ipynb)
 
 ## Development
- To install this gem onto your local machine, run `bundle exec rake install`. To run the tests use `bundle exec rake spec`.
- To prepare the docs using yard run `bundle exec rake doc`.
+ To install this gem onto your local machine, run `bundle exec rake install`.    
+ To run the tests use `bundle exec rake spec`.   
+ To prepare the docs using yard run `bundle exec rake doc`.   
 
 ## Dependencies
 - daru
@@ -24,4 +25,3 @@ It is highly recommended that the user uses a plotting gem such as
   - cosine_similarity
   - binary_jaccard_distance
   - jaccard_distance
-- Methods to achieve back and forth conversion from Daru::DataFrame to nmatrix for fast computation.
