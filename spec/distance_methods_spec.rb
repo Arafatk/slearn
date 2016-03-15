@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'slearn/distance_methods'
 
 describe "distance" do
-  ALL_DTYPES.each do |dtype|
+  [:int8, :int16, :int32, :int64, :float32, :float64].each do |dtype|
     next if dtype == :object || dtype == :byte
     context dtype do
       err = 1e-2
