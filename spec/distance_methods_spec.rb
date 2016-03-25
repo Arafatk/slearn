@@ -18,7 +18,7 @@ describe "distance" do
         expect(a.distance(b,'manhattan')).to be_within(err).of(4)
       end
 
-      it "should return the manhattan distance between 2 vectors" do
+      it "should return the cosine distance between 2 vectors" do
         a = NMatrix.new([2], [1,142], dtype: dtype)
         b = NMatrix.new([2], [111,1], dtype: dtype) 
         expect(a.distance(b,'cosine')).to be_within(err).of(0.9839497867953171)

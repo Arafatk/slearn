@@ -6,7 +6,7 @@ module Distance_methods
   end
 
   def manhattan(a, b)
-  	(a - b).asum
+    (a - b).asum
   end
 
   def cosine(a, b)
