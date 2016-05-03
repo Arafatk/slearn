@@ -20,5 +20,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'nyaplot', '~> 0.1.5'
   spec.add_development_dependency 'nmatrix', '~> 0.2.1'
   spec.add_development_dependency 'daru', '~> 0.1.2'
+  spec.add_development_dependency 'rbtree', '~> 0.4.2'
   spec.license     = 'MIT'
 end

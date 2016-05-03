@@ -1,6 +1,8 @@
 require 'nmatrix'
 require 'daru'
+require 'rbtree'
 require 'slearn/kmeans'
 require 'slearn/daru_methods.rb'
 require 'slearn/nmatrix_methods.rb'
 require 'slearn/distance_methods.rb'
+require 'slearn/nearest_neighbours.rb'
