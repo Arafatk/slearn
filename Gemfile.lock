@@ -32,6 +32,7 @@ GEM
       prawn (>= 0.8.4)
     rainbow (2.0.0)
     rake (10.5.0)
+    rbtree (0.4.2)
     reportbuilder (1.4.2)
       clbustos-rtf (~> 0.4.0)
       prawn (~> 0.8.4)
@@ -71,6 +72,7 @@ DEPENDENCIES
   nmatrix (~> 0.2.1)
   nyaplot (~> 0.1.5)
   rake (~> 10.0)
+  rbtree (~> 0.4.2)
   rspec (~> 3.0)
   rubocop
   slearn!
