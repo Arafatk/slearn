@@ -20,8 +20,3 @@ It is highly recommended that the user uses a plotting gem such as
 - gnuplotrb
 - nyaplot
 
-## TODO's for K-Means
-- Add a variety of distance methods such as 
-  - cosine_similarity
-  - binary_jaccard_distance
-  - jaccard_distance
